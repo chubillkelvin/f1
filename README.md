@@ -15,3 +15,8 @@ Install the dependencies and run:
 yarn install
 yarn dev
 ```
+
+## Credits
+
+- [Ergast Developer API](http://ergast.com/mrd/)
+- [F1 favicon](https://www.favicon.cc/?action=icon&file_id=294161)

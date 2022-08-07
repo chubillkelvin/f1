@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import Copyright from "../components/Copyright";
 import MainContainer from "../components/MainContainer";
 
-const OverallStandings: NextPage = () => {
+const RaceResults: NextPage = () => {
   return (
     <MainContainer>
       <Box
@@ -18,7 +18,7 @@ const OverallStandings: NextPage = () => {
         }}
       >
         <Typography variant="h4" component="h1" gutterBottom>
-          Overall Standings
+          Race Results
         </Typography>
         <Copyright />
       </Box>
@@ -26,4 +26,4 @@ const OverallStandings: NextPage = () => {
   );
 };
 
-export default OverallStandings;
+export default RaceResults;
