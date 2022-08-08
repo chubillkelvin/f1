@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest"
   },
   "dependencies": {
     "@emotion/cache": "latest",
@@ -25,11 +26,15 @@
     "swr": "latest"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "latest",
+    "@testing-library/react": "latest",
     "@types/node": "latest",
     "@types/react": "latest",
     "eslint": "latest",
     "eslint-config-next": "latest",
     "eslint-plugin-unused-imports": "latest",
+    "jest": "latest",
+    "jest-environment-jsdom": "latest",
     "prettier": "latest",
     "typescript": "latest"
   }

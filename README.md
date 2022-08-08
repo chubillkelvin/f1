@@ -16,6 +16,12 @@ yarn install
 yarn dev
 ```
 
+Running tests:
+
+```sh
+yarn test
+```
+
 ## Credits
 
 - [Ergast Developer API](http://ergast.com/mrd/)
