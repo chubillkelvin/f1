@@ -14,7 +14,7 @@ import OverallStandingItem from "../../components/common/OverallStandingItem";
 const RaceResults: NextPage = () => {
   const router = useRouter();
   const round = router.query.round as string;
-  const { data } = useRaceData(round);
+  const { data, error } = useRaceData(round);
   const race = data?.MRData.RaceTable.Races[0];
 
   return (
@@ -37,6 +37,8 @@ const RaceResults: NextPage = () => {
             </Typography>
             <RaceResultsTable data={race.Results} />
           </>
+        ) : error ? (
+          <Typography color="red">Error - results not found!</Typography>
         ) : (
           <CircularProgress />
         )}

@@ -3,7 +3,7 @@ import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
-import { Box, CircularProgress } from "@mui/material";
+import { Box, CircularProgress, Typography } from "@mui/material";
 
 import MainContainer from "../../components/common/MainContainer";
 import { useDriverData } from "../../hooks/useDriverData";
@@ -14,8 +14,10 @@ import OverallStandingItem from "../../components/common/OverallStandingItem";
 const DriverResults: NextPage = () => {
   const router = useRouter();
   const driverId = router.query.driverId as string;
-  const { data } = useDriverData(driverId);
+  const { data, isValidating, error } = useDriverData(driverId);
   const result = data?.MRData.RaceTable.Races[0]?.Results[0];
+
+  const hasError = error || (data && !isValidating && !result);
 
   return (
     <MainContainer component={<OverallStandingItem />}>
@@ -34,6 +36,8 @@ const DriverResults: NextPage = () => {
             <DriverDetail result={result} />
             <DriverResultsTable data={data} />
           </>
+        ) : hasError ? (
+          <Typography color="red">Error - results not found!</Typography>
         ) : (
           <CircularProgress />
         )}

@@ -2,7 +2,7 @@ import React from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 
-import { Box, CircularProgress } from "@mui/material";
+import { Box, CircularProgress, Typography } from "@mui/material";
 
 import MainContainer from "../components/common/MainContainer";
 import OverallStandingsTable from "../components/overall/OverallStandingsTable";
@@ -11,7 +11,7 @@ import { useStandingsData } from "../hooks/useStandingsData";
 import RaceResultsMenu from "../components/overall/RaceResultsMenu";
 
 const OverallStandings: NextPage = () => {
-  const { data } = useStandingsData();
+  const { data, error } = useStandingsData();
 
   return (
     <MainContainer component={<RaceResultsMenu />}>
@@ -20,7 +20,13 @@ const OverallStandings: NextPage = () => {
       </Head>
       <PageTitle title="Overall Standings" />
       <Box display="flex" justifyContent="center" alignItems="center" mb={2}>
-        {data ? <OverallStandingsTable data={data} /> : <CircularProgress />}
+        {data ? (
+          <OverallStandingsTable data={data} />
+        ) : error ? (
+          <Typography color="red">Error - results not found!</Typography>
+        ) : (
+          <CircularProgress />
+        )}
       </Box>
     </MainContainer>
   );
