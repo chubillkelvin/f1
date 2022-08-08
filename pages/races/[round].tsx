@@ -8,6 +8,7 @@ import MainContainer from "../../components/common/MainContainer";
 import PageTitle from "../../components/common/PageTitle";
 import { useRaceData } from "../../hooks/useRaceData";
 import RaceResultsTable from "../../components/races/RaceResultsTable";
+import OverallStandingItem from "../../components/common/OverallStandingItem";
 
 const RaceResults: NextPage = () => {
   const router = useRouter();
@@ -16,7 +17,7 @@ const RaceResults: NextPage = () => {
   const race = data?.MRData.RaceTable.Races[0];
 
   return (
-    <MainContainer>
+    <MainContainer component={<OverallStandingItem />}>
       <Box
         display="flex"
         flexDirection="column"

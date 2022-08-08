@@ -8,6 +8,7 @@ import MainContainer from "../../components/common/MainContainer";
 import { useDriverData } from "../../hooks/useDriverData";
 import DriverDetail from "../../components/drivers/DriverDetail";
 import DriverResultsTable from "../../components/drivers/DriverResultsTable";
+import OverallStandingItem from "../../components/common/OverallStandingItem";
 
 const DriverResults: NextPage = () => {
   const router = useRouter();
@@ -16,7 +17,7 @@ const DriverResults: NextPage = () => {
   const result = data?.MRData.RaceTable.Races[0]?.Results[0];
 
   return (
-    <MainContainer>
+    <MainContainer component={<OverallStandingItem />}>
       <Box
         display="flex"
         flexDirection="column"
