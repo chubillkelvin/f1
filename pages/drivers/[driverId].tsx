@@ -7,7 +7,7 @@ import { Box, CircularProgress } from "@mui/material";
 import MainContainer from "../../components/MainContainer";
 import { useDriverData } from "../../hooks/useDriverData";
 import DriverDetail from "../../components/DriverDetail";
-import RaceResultsTable from "../../components/RaceResultsTable";
+import DriverResultsTable from "../../components/DriverResultsTable";
 
 const DriverResults: NextPage = () => {
   const router = useRouter();
@@ -27,7 +27,7 @@ const DriverResults: NextPage = () => {
         {data && result ? (
           <>
             <DriverDetail result={result} />
-            <RaceResultsTable data={data} />
+            <DriverResultsTable data={data} />
           </>
         ) : (
           <CircularProgress />

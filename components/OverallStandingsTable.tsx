@@ -13,6 +13,8 @@ import {
 import Link from "./Link";
 
 import { OverallStandingsData } from "../types/standings";
+import { getFullName } from "../utils/getFullName";
+import { getBackgroundColor } from "../utils/getBackgroundColor";
 
 interface Props {
   data: OverallStandingsData;
@@ -36,14 +38,19 @@ const OverallStandingsTable = ({ data }: Props) => {
         </TableHead>
         <TableBody>
           {data.MRData.StandingsTable.StandingsLists[0].DriverStandings.map(
-            ({ position, Driver, points, wins }) => (
-              <TableRow key={Driver.driverId}>
+            ({ position, Driver: driver, points, wins }) => (
+              <TableRow
+                key={driver.driverId}
+                sx={{ backgroundColor: getBackgroundColor(position) }}
+              >
                 <TableCell align="center">{position}</TableCell>
                 <TableCell align="center">
                   <Link
                     sx={{ textDecoration: "none" }}
-                    href={`/drivers/${Driver.driverId}`}
-                  >{`${Driver.givenName} ${Driver.familyName}`}</Link>
+                    href={`/drivers/${driver.driverId}`}
+                  >
+                    {getFullName(driver)}
+                  </Link>
                 </TableCell>
                 <TableCell align="center">{points}</TableCell>
                 <TableCell align="center">{wins}</TableCell>

@@ -4,10 +4,11 @@ import { Card, CardContent, Typography } from "@mui/material";
 
 import Link from "./Link";
 
-import { Result } from "../types/driver";
+import { RaceResult } from "../types/race";
+import { getFullName } from "../utils/getFullName";
 
 interface Props {
-  result: Result;
+  result: RaceResult;
 }
 
 const DriverDetail = ({ result }: Props) => {
@@ -17,7 +18,7 @@ const DriverDetail = ({ result }: Props) => {
     <Card sx={{ minWidth: 360, mb: 3 }} elevation={3}>
       <CardContent>
         <Typography variant="h5" align="center" gutterBottom>
-          {`${driver.givenName} ${driver.familyName}`}
+          {getFullName(driver)}
         </Typography>
         <Typography align="center" gutterBottom>
           Nationality: {driver.nationality}

@@ -10,11 +10,13 @@ import {
   TableRow,
 } from "@mui/material";
 
-import { DriverData } from "../types/driver";
+import { RaceResult } from "../types/race";
+import { getBackgroundColor } from "../utils/getBackgroundColor";
+import { getFullName } from "../utils/getFullName";
 import Link from "./Link";
 
 interface Props {
-  data: DriverData;
+  data: RaceResult[];
 }
 
 const RaceResultsTable = ({ data }: Props) => {
@@ -27,49 +29,36 @@ const RaceResultsTable = ({ data }: Props) => {
       <Table sx={{ minWidth: 650 }} aria-label="f1 overall standings table">
         <TableHead>
           <TableRow>
-            <TableCell align="center">Round #</TableCell>
-            <TableCell align="center">Circuit Name</TableCell>
-            <TableCell align="center">Race Name</TableCell>
-            <TableCell align="center">Country</TableCell>
-            <TableCell align="center">Date</TableCell>
-            <TableCell align="center">Round Result</TableCell>
+            <TableCell align="center">Position</TableCell>
+            <TableCell align="center">Name</TableCell>
             <TableCell align="center">Points</TableCell>
+            <TableCell align="center">Fastest Lap Time</TableCell>
+            <TableCell align="center">Average Speed</TableCell>
+            <TableCell align="center">Status</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.MRData.RaceTable.Races.map(
-            ({ Circuit: circuit, Results: results, date, round, raceName }) => (
+          {data.map(
+            ({ position, Driver: driver, points, status, FastestLap: lap }) => (
               <TableRow
-                key={date + raceName}
+                key={position}
                 sx={{
-                  backgroundColor: getBackgroundColor(results[0].position),
+                  backgroundColor: getBackgroundColor(position),
                 }}
               >
-                <TableCell align="center">{round}</TableCell>
-                <TableCell align="center">
-                  {circuit.circuitName}
-                  {circuit.url && (
-                    <Link
-                      sx={{ textDecoration: "none", fontSize: 10 }}
-                      href={circuit.url}
-                      target="_blank"
-                    >
-                      {` [wiki]`}
-                    </Link>
-                  )}
-                </TableCell>
+                <TableCell align="center">{position}</TableCell>
                 <TableCell align="center">
                   <Link
+                    href={`/drivers/${driver.driverId}`}
                     sx={{ textDecoration: "none" }}
-                    href={`/races/${round}`}
                   >
-                    {raceName}
+                    {getFullName(driver)}
                   </Link>
                 </TableCell>
-                <TableCell align="center">{circuit.Location.country}</TableCell>
-                <TableCell align="center">{date}</TableCell>
-                <TableCell align="center">{results[0].position}</TableCell>
-                <TableCell align="center">{results[0].points}</TableCell>
+                <TableCell align="center">{points}</TableCell>
+                <TableCell align="center">{lap.Time.time}</TableCell>
+                <TableCell align="center">{`${lap.AverageSpeed.speed} ${lap.AverageSpeed.units}`}</TableCell>
+                <TableCell align="center">{status}</TableCell>
               </TableRow>
             )
           )}
@@ -77,19 +66,6 @@ const RaceResultsTable = ({ data }: Props) => {
       </Table>
     </TableContainer>
   );
-};
-
-const getBackgroundColor = (rank: string) => {
-  switch (rank) {
-    case "1":
-      return "gold";
-    case "2":
-      return "gainsboro";
-    case "3":
-      return "#E7CFAE";
-    default:
-      return undefined;
-  }
 };
 
 export default RaceResultsTable;
