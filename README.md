@@ -9,10 +9,15 @@ A simple project displaying F1 data from public [Ergast Developer API](http://er
 
 ## How to use
 
-Install the dependencies and run:
+Install the dependencies:
 
 ```sh
 yarn install
+```
+
+Running the app in development mode:
+
+```sh
 yarn dev
 ```
 
@@ -20,6 +25,12 @@ Running tests:
 
 ```sh
 yarn test
+```
+
+Running storybook:
+
+```sh
+yarn storybook
 ```
 
 ## Credits

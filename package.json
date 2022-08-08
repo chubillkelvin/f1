@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest"
+    "test": "jest",
+    "storybook": "start-storybook -p 6006"
   },
   "dependencies": {
     "@emotion/cache": "latest",
@@ -26,6 +27,10 @@
     "swr": "latest"
   },
   "devDependencies": {
+    "@storybook/addon-controls": "latest",
+    "@storybook/builder-webpack5": "latest",
+    "@storybook/manager-webpack5": "latest",
+    "@storybook/react": "latest",
     "@testing-library/jest-dom": "latest",
     "@testing-library/react": "latest",
     "@types/node": "latest",
@@ -36,6 +41,11 @@
     "jest": "latest",
     "jest-environment-jsdom": "latest",
     "prettier": "latest",
-    "typescript": "latest"
+    "typescript": "latest",
+    "util": "latest",
+    "webpack": "latest"
+  },
+  "resolutions": {
+    "webpack": "^5"
   }
 }
