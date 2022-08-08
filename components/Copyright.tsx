@@ -4,7 +4,7 @@ import { Link as MuiLink, Typography } from "@mui/material";
 
 export default function Copyright() {
   return (
-    <Typography my={1} variant="body2" color="text.secondary" align="center">
+    <Typography mb={2} variant="body2" color="text.secondary" align="center">
       {"Copyright © "}
       <MuiLink
         target="_blank"

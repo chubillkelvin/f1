@@ -1,26 +1,21 @@
-import * as React from "react";
+import React from "react";
 import type { NextPage } from "next";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Copyright from "../components/Copyright";
+
+import { Box, CircularProgress } from "@mui/material";
+
 import MainContainer from "../components/MainContainer";
+import OverallStandingsTable from "../components/OverallStandingsTable";
+import PageTitle from "../components/PageTitle";
+import { useStandingsData } from "../hooks/useStandingsData";
 
 const OverallStandings: NextPage = () => {
+  const { data } = useStandingsData();
+
   return (
     <MainContainer>
-      <Box
-        sx={{
-          my: 4,
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Typography variant="h4" component="h1" gutterBottom>
-          Overall Standings
-        </Typography>
-        <Copyright />
+      <PageTitle title="Overall Standings" />
+      <Box display="flex" justifyContent="center" alignItems="center" mb={2}>
+        {data ? <OverallStandingsTable data={data} /> : <CircularProgress />}
       </Box>
     </MainContainer>
   );

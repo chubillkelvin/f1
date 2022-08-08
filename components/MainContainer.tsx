@@ -9,7 +9,8 @@ import {
   useTheme,
 } from "@mui/material";
 import Link from "./Link";
-import { DriveEta, Person, QueryStats } from "@mui/icons-material";
+import { DriveEta, QueryStats } from "@mui/icons-material";
+import Copyright from "./Copyright";
 
 export default function MainContainer({ children }: PropsWithChildren<{}>) {
   return (
@@ -24,11 +25,12 @@ export default function MainContainer({ children }: PropsWithChildren<{}>) {
             <Link href="/">
               <Box display="flex" alignItems="center">
                 <Typography
-                  variant="h6"
+                  variant="h4"
                   noWrap
                   sx={{
+                    p: 1,
                     ml: { xs: 0, sm: 1 },
-                    fontFamily: "monospace",
+                    // fontFamily: "monospace",
                     fontWeight: 700,
                     color: "white",
                     textDecoration: "none",
@@ -50,17 +52,14 @@ export default function MainContainer({ children }: PropsWithChildren<{}>) {
                 icon={<DriveEta />}
                 title="Race Results"
               />
-              <Box m={2} />
-              <AppBarItem
-                href="/drivers"
-                icon={<Person />}
-                title="Driver Results"
-              />
             </Box>
           </Box>
         </Container>
       </AppBar>
-      <Container maxWidth="lg">{children}</Container>
+      <Container maxWidth="lg" sx={{ pt: 10 }}>
+        {children}
+        <Copyright />
+      </Container>
     </>
   );
 }
