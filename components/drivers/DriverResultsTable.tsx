@@ -10,9 +10,9 @@ import {
   TableRow,
 } from "@mui/material";
 
-import { DriverData } from "../types/driver";
-import Link from "./Link";
-import { getBackgroundColor } from "../utils/getBackgroundColor";
+import { DriverData } from "../../types/driver";
+import Link from "../common/Link";
+import { getBackgroundColor } from "../../utils/getBackgroundColor";
 
 interface Props {
   data: DriverData;

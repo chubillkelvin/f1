@@ -2,10 +2,10 @@ import * as React from "react";
 
 import { Card, CardContent, Typography } from "@mui/material";
 
-import Link from "./Link";
+import Link from "../common/Link";
 
-import { RaceResult } from "../types/race";
-import { getFullName } from "../utils/getFullName";
+import { RaceResult } from "../../types/race";
+import { getFullName } from "../../utils/getFullName";
 
 interface Props {
   result: RaceResult;

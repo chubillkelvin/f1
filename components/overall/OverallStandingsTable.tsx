@@ -10,11 +10,11 @@ import {
   TableRow,
 } from "@mui/material";
 
-import Link from "./Link";
+import Link from "../common/Link";
 
-import { OverallStandingsData } from "../types/standings";
-import { getFullName } from "../utils/getFullName";
-import { getBackgroundColor } from "../utils/getBackgroundColor";
+import { OverallStandingsData } from "../../types/standings";
+import { getFullName } from "../../utils/getFullName";
+import { getBackgroundColor } from "../../utils/getBackgroundColor";
 
 interface Props {
   data: OverallStandingsData;

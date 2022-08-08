@@ -37,7 +37,7 @@ export interface RaceResult {
     url: string;
   };
   Driver: Driver;
-  FastestLap: Lap;
+  FastestLap?: Lap;
   Time: Time;
   grid: string;
   laps: string;

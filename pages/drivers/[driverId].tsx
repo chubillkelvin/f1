@@ -4,10 +4,10 @@ import { useRouter } from "next/router";
 
 import { Box, CircularProgress } from "@mui/material";
 
-import MainContainer from "../../components/MainContainer";
+import MainContainer from "../../components/common/MainContainer";
 import { useDriverData } from "../../hooks/useDriverData";
-import DriverDetail from "../../components/DriverDetail";
-import DriverResultsTable from "../../components/DriverResultsTable";
+import DriverDetail from "../../components/drivers/DriverDetail";
+import DriverResultsTable from "../../components/drivers/DriverResultsTable";
 
 const DriverResults: NextPage = () => {
   const router = useRouter();

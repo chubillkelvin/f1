@@ -4,17 +4,16 @@ import { useRouter } from "next/router";
 
 import { Box, CircularProgress, Typography } from "@mui/material";
 
-import MainContainer from "../../components/MainContainer";
-import PageTitle from "../../components/PageTitle";
+import MainContainer from "../../components/common/MainContainer";
+import PageTitle from "../../components/common/PageTitle";
 import { useRaceData } from "../../hooks/useRaceData";
-import RaceResultsTable from "../../components/RaceResultsTable";
+import RaceResultsTable from "../../components/races/RaceResultsTable";
 
 const RaceResults: NextPage = () => {
   const router = useRouter();
   const round = router.query.round as string;
   const { data } = useRaceData(round);
   const race = data?.MRData.RaceTable.Races[0];
-  console.log("data", data);
 
   return (
     <MainContainer>

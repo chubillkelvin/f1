@@ -30,7 +30,6 @@ export default function MainContainer({ children }: PropsWithChildren<{}>) {
                   sx={{
                     p: 1,
                     ml: { xs: 0, sm: 1 },
-                    // fontFamily: "monospace",
                     fontWeight: 700,
                     color: "white",
                     textDecoration: "none",

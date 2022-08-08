@@ -10,10 +10,10 @@ import {
   TableRow,
 } from "@mui/material";
 
-import { RaceResult } from "../types/race";
-import { getBackgroundColor } from "../utils/getBackgroundColor";
-import { getFullName } from "../utils/getFullName";
-import Link from "./Link";
+import { RaceResult } from "../../types/race";
+import { getBackgroundColor } from "../../utils/getBackgroundColor";
+import { getFullName } from "../../utils/getFullName";
+import Link from "../common/Link";
 
 interface Props {
   data: RaceResult[];
@@ -56,8 +56,12 @@ const RaceResultsTable = ({ data }: Props) => {
                   </Link>
                 </TableCell>
                 <TableCell align="center">{points}</TableCell>
-                <TableCell align="center">{lap.Time.time}</TableCell>
-                <TableCell align="center">{`${lap.AverageSpeed.speed} ${lap.AverageSpeed.units}`}</TableCell>
+                <TableCell align="center">{lap?.Time.time || "-"}</TableCell>
+                <TableCell align="center">
+                  {lap
+                    ? `${lap?.AverageSpeed.speed} ${lap?.AverageSpeed.units}`
+                    : "-"}
+                </TableCell>
                 <TableCell align="center">{status}</TableCell>
               </TableRow>
             )
