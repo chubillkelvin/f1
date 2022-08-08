@@ -1,5 +1,6 @@
 import React from "react";
 import type { NextPage } from "next";
+import Head from "next/head";
 
 import { Box, CircularProgress } from "@mui/material";
 
@@ -14,6 +15,9 @@ const OverallStandings: NextPage = () => {
 
   return (
     <MainContainer component={<RaceResultsMenu />}>
+      <Head>
+        <title>F1 - Overall Standings</title>
+      </Head>
       <PageTitle title="Overall Standings" />
       <Box display="flex" justifyContent="center" alignItems="center" mb={2}>
         {data ? <OverallStandingsTable data={data} /> : <CircularProgress />}

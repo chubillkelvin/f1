@@ -1,6 +1,7 @@
 import * as React from "react";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 import { Box, CircularProgress } from "@mui/material";
 
@@ -18,6 +19,9 @@ const DriverResults: NextPage = () => {
 
   return (
     <MainContainer component={<OverallStandingItem />}>
+      <Head>
+        <title>F1 - Driver Results</title>
+      </Head>
       <Box
         display="flex"
         flexDirection="column"
