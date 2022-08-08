@@ -9,7 +9,7 @@ import {
   useTheme,
 } from "@mui/material";
 import Link from "./Link";
-import { DriveEta, QueryStats } from "@mui/icons-material";
+import { QueryStats } from "@mui/icons-material";
 import Copyright from "./Copyright";
 
 export default function MainContainer({ children }: PropsWithChildren<{}>) {
@@ -47,11 +47,6 @@ export default function MainContainer({ children }: PropsWithChildren<{}>) {
                 title="Overall Standings"
               />
               <Box m={2} />
-              <AppBarItem
-                href="/races"
-                icon={<DriveEta />}
-                title="Race Results"
-              />
             </Box>
           </Box>
         </Container>

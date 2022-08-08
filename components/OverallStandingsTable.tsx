@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   Paper,
   Table,
@@ -8,8 +9,10 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import { OverallStandingsData } from "../hooks/useStandingsData";
+
 import Link from "./Link";
+
+import { OverallStandingsData } from "../types/standings";
 
 interface Props {
   data: OverallStandingsData;
@@ -38,6 +41,7 @@ const OverallStandingsTable = ({ data }: Props) => {
                 <TableCell align="center">{position}</TableCell>
                 <TableCell align="center">
                   <Link
+                    sx={{ textDecoration: "none" }}
                     href={`/drivers/${Driver.driverId}`}
                   >{`${Driver.givenName} ${Driver.familyName}`}</Link>
                 </TableCell>
